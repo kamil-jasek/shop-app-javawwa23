@@ -5,7 +5,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import pl.sda.shopapp.entity.Address;
+import pl.sda.shopapp.entity.Company;
 import pl.sda.shopapp.entity.Person;
+import pl.sda.shopapp.entity.VatNumber;
 
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
@@ -42,5 +44,25 @@ final class CustomerTest {
         assertEquals(readPerson, person);
         assertEquals(1, readPerson.getAddresses().size());
         assertEquals(readPerson.getAddresses().get(0), address);
+    }
+
+    @Test
+    @Transactional
+    void testCreateCompany() {
+        // given
+        var company = new Company(new VatNumber("0123456789"), "Test S.A.");
+        var address = new Address("test", "test", "01-500", "PL");
+        company.addAddress(address);
+
+        // when
+        em.persist(company);
+        em.flush();
+        em.clear();
+        var readCompany = em.find(Company.class, company.getId());
+
+        // then
+        assertEquals(readCompany, company);
+        assertEquals(1, company.getAddresses().size());
+        assertEquals(company.getAddresses().get(0), address);
     }
 }
