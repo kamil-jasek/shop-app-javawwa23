@@ -3,6 +3,7 @@ package pl.sda.shopapp.repository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import pl.sda.shopapp.entity.Customer;
 import pl.sda.shopapp.entity.Person;
@@ -17,7 +18,7 @@ import java.util.UUID;
  * @author kamil.jasek@gmail.com
  * @since 2020-06-06
  */
-public interface CustomerRepository extends JpaRepository<Customer, UUID> {
+public interface CustomerRepository extends JpaRepository<Customer, UUID>, JpaSpecificationExecutor<Customer> {
 
     // select * from Customer c where c.name = ?1
     List<Customer> findByName(String name);
