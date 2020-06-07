@@ -11,7 +11,7 @@ import java.util.UUID;
 import static pl.sda.shopapp.util.Preconditions.requireNonNulls;
 
 @Entity
-@Table(name = "customer_addresses")
+@Table(name = "addresses")
 public class Address {
 
     @Id
