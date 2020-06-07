@@ -17,6 +17,7 @@ public final class Person extends Customer {
 
     private String firstName;
     private String lastName;
+    private String nickName;
 
     @JpaOnly
     private Person() {
@@ -34,5 +35,13 @@ public final class Person extends Customer {
 
     public String getFirstName() {
         return firstName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public String getNickName() {
+        return nickName;
     }
 }
