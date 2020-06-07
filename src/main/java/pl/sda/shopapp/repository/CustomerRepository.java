@@ -4,6 +4,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import pl.sda.shopapp.entity.Customer;
 import pl.sda.shopapp.entity.Person;
@@ -50,6 +51,10 @@ public interface CustomerRepository extends JpaRepository<Customer, UUID>, JpaSp
                     "group by a.city order by a.city",
             nativeQuery = true)
     List<CustomerByCity> groupCustomersByCity();
+
+    @Modifying
+    @Query("update Company c set c.name = ?2 where c.id = ?1")
+    int updateCompanyName(UUID id, String name);
 
     interface CustomerByCity {
         String getCity();
