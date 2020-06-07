@@ -8,6 +8,8 @@ import pl.sda.shopapp.entity.Person;
 import pl.sda.shopapp.repository.CustomerRepository;
 import pl.sda.shopapp.repository.CustomerSpec;
 
+import javax.transaction.Transactional;
+
 import static java.util.Arrays.asList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -18,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @since 2020-06-06
  */
 @SpringBootTest
+@Transactional
 final class CustomerSpecTest {
 
     @Autowired

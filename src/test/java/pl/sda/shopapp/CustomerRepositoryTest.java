@@ -8,6 +8,7 @@ import org.springframework.data.domain.Sort;
 import pl.sda.shopapp.entity.*;
 import pl.sda.shopapp.repository.CustomerRepository;
 
+import javax.transaction.Transactional;
 import java.util.Arrays;
 import java.util.Optional;
 import java.util.UUID;
@@ -22,6 +23,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @since 2020-06-06
  */
 @SpringBootTest
+@Transactional
 final class CustomerRepositoryTest {
 
     @Autowired
