@@ -1,10 +1,9 @@
-package pl.sda.shopapp;
+package pl.sda.shopapp.entity;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import pl.sda.shopapp.dto.CustomerQuery;
-import pl.sda.shopapp.entity.Person;
+import pl.sda.shopapp.dto.CustomerQueryDto;
 import pl.sda.shopapp.repository.CustomerRepository;
 import pl.sda.shopapp.repository.CustomerSpec;
 
@@ -29,7 +28,7 @@ final class CustomerSpecTest {
     @Test
     void testSpec() {
         // given
-        var query = new CustomerQuery();
+        var query = new CustomerQueryDto();
         query.setName("Jan");
         query.setTaxId("89302002003");
 

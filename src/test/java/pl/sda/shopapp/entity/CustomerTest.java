@@ -1,4 +1,4 @@
-package pl.sda.shopapp;
+package pl.sda.shopapp.entity;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

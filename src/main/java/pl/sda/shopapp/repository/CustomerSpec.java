@@ -2,7 +2,7 @@ package pl.sda.shopapp.repository;
 
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.util.StringUtils;
-import pl.sda.shopapp.dto.CustomerQuery;
+import pl.sda.shopapp.dto.CustomerQueryDto;
 import pl.sda.shopapp.entity.Customer;
 
 /**
@@ -13,7 +13,7 @@ import pl.sda.shopapp.entity.Customer;
  */
 public final class CustomerSpec {
 
-    public static Specification<Customer> withQuery(CustomerQuery query) {
+    public static Specification<Customer> withQuery(CustomerQueryDto query) {
         return (root, criteriaQuery, criteriaBuilder) -> {
             // where 1=1
             var predicate = criteriaBuilder.conjunction();

@@ -6,7 +6,7 @@ package pl.sda.shopapp.dto;
  * @author kamil.jasek@gmail.com
  * @since 2020-06-06
  */
-public final class CustomerQuery {
+public final class CustomerQueryDto {
     private String name;
     private String taxId;
 
