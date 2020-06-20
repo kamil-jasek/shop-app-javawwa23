@@ -1,17 +1,15 @@
-package pl.sda.shopapp.service;
+package pl.sda.shopapp.service.geocoding;
 
 import com.google.maps.GeoApiContext;
 import com.google.maps.GeocodingApi;
 import com.google.maps.errors.ApiException;
 import com.google.maps.model.AddressComponent;
-import com.google.maps.model.AddressComponentType;
 import com.google.maps.model.GeocodingResult;
 import com.google.maps.model.LatLng;
 import org.springframework.stereotype.Service;
-import pl.sda.shopapp.dto.GoogleAddressDto;
+import pl.sda.shopapp.dto.GeocodeAddressDto;
 
 import java.io.IOException;
-import java.util.List;
 
 import static com.google.maps.model.AddressComponentType.*;
 import static java.util.Arrays.asList;
@@ -24,7 +22,7 @@ import static pl.sda.shopapp.util.Preconditions.requireNonNulls;
  * @since 2020-06-07
  */
 @Service
-class GoogleAddressService {
+class GoogleGeocodingService implements GeocodingService {
 
     public static class GoogleAddressServiceException extends RuntimeException {
         GoogleAddressServiceException(String msg) {
@@ -34,12 +32,12 @@ class GoogleAddressService {
 
     private final GeoApiContext context;
 
-    GoogleAddressService(GeoApiContext context) {
+    GoogleGeocodingService(GeoApiContext context) {
         requireNonNulls(context);
         this.context = context;
     }
 
-    public GoogleAddressDto findAddress(double latitude, double longitude) {
+    public GeocodeAddressDto find(double latitude, double longitude) {
         try {
             var results = GeocodingApi
                     .reverseGeocode(context, new LatLng(latitude, longitude))
@@ -55,7 +53,7 @@ class GoogleAddressService {
         }
     }
 
-    private GoogleAddressDto extractAddress(GeocodingResult result) {
+    private GeocodeAddressDto extractAddress(GeocodingResult result) {
         var streetNumber = "UKNOWN";
         var street = "UNKNOWN";
         var city = "UNKNOWN";
@@ -77,6 +75,6 @@ class GoogleAddressService {
             }
         }
 
-        return new GoogleAddressDto(street + " " + streetNumber, zipCode, city, country);
+        return new GeocodeAddressDto(street + " " + streetNumber, zipCode, city, country);
     }
 }

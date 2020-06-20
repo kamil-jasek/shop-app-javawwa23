@@ -6,16 +6,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import pl.sda.shopapp.dto.CreateCompanyDto;
 import pl.sda.shopapp.dto.CustomerQueryDto;
 import pl.sda.shopapp.dto.CustomerQueryResultDto;
-import pl.sda.shopapp.entity.Company;
-import pl.sda.shopapp.entity.Person;
-import pl.sda.shopapp.entity.VatNumber;
+import pl.sda.shopapp.entity.*;
 import pl.sda.shopapp.repository.CustomerRepository;
 
 import javax.transaction.Transactional;
 
 import static java.util.Arrays.asList;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * ... comment class...
@@ -73,5 +70,23 @@ final class CustomerServiceTest {
                 person1.getId(), person1.getName(), person1.getTaxId(),
                 CustomerQueryResultDto.CustomerType.PERSON);
         assertTrue(customers.contains(dto2));
+    }
+
+    @Test
+    void testCreateAddressWithGeocoding() {
+        // given
+        var company = new Company(new VatNumber("0123456789"), "Test SA");
+        repository.save(company);
+        repository.flush();
+
+        // when
+        service.createAddress(company.getId(), 52.250714, 20.876190);
+
+        // then
+        var companyRead = repository.getOne(company.getId());
+        var expectedAddress = new Address("Spychowska 2A", "Warszawa", "01-472", "PL");
+
+        assertFalse(companyRead.getAddresses().isEmpty());
+        assertTrue(companyRead.getAddresses().contains(expectedAddress));
     }
 }
