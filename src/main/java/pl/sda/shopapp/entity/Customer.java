@@ -60,6 +60,13 @@ public abstract class Customer {
         }
     }
 
+    public void removeAddress(UUID addressId) {
+        addresses.stream()
+                .filter(address -> address.getId().equals(addressId))
+                .findFirst()
+                .ifPresent(address -> addresses.remove(address));
+    }
+
     public List<Address> getAddresses() {
         return new ArrayList<>(addresses);
     }

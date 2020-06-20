@@ -1,5 +1,8 @@
 package pl.sda.shopapp.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.Objects;
 
 /**
@@ -10,7 +13,12 @@ import java.util.Objects;
  */
 public final class CreateCompanyDto {
 
+    @NotNull
+    @NotBlank
     private String name;
+
+    @NotNull
+    @Pattern(regexp = "\\d{10}")
     private String vatNumber;
 
     public CreateCompanyDto(String name, String vatNumber) {

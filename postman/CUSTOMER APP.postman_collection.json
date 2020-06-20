@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "5cdf8a21-0269-4984-9f7c-2d7cc3f5bbee",
+		"name": "CUSTOMER APP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET CUSTOMERS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8099/api/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8099",
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE CUSTOMER",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"TEST 2 S.A.\",\n    \"vatNumber\": \"0123456789\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8099/api/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8099",
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE COMPANY NAME",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"TEST S.A.\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8099/api/customers/09656880-c493-459b-b21e-0d0b3c6e6368/companyName",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8099",
+					"path": [
+						"api",
+						"customers",
+						"09656880-c493-459b-b21e-0d0b3c6e6368",
+						"companyName"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE ADDRESS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"latitude\": 52.251514,\n    \"longitude\": 20.816190\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8099/api/customers/98545d8e-6ae7-4764-9426-f98c7cbf1b3c/addresses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8099",
+					"path": [
+						"api",
+						"customers",
+						"98545d8e-6ae7-4764-9426-f98c7cbf1b3c",
+						"addresses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LIST ADDRESSES",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"latitude\": 52.250714,\n    \"longitude\": 20.876190\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8099/api/customers/98545d8e-6ae7-4764-9426-f98c7cbf1b3c/addresses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8099",
+					"path": [
+						"api",
+						"customers",
+						"98545d8e-6ae7-4764-9426-f98c7cbf1b3c",
+						"addresses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE ADDRESS",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"latitude\": 52.250714,\n    \"longitude\": 20.876190\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8099/api/customers/98545d8e-6ae7-4764-9426-f98c7cbf1b3c/addresses/030c401c-e55a-4963-90c3-e260d14a57f9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8099",
+					"path": [
+						"api",
+						"customers",
+						"98545d8e-6ae7-4764-9426-f98c7cbf1b3c",
+						"addresses",
+						"030c401c-e55a-4963-90c3-e260d14a57f9"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
