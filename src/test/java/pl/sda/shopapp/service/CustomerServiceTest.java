@@ -8,6 +8,7 @@ import pl.sda.shopapp.dto.CustomerQueryDto;
 import pl.sda.shopapp.dto.CustomerQueryResultDto;
 import pl.sda.shopapp.entity.*;
 import pl.sda.shopapp.repository.CustomerRepository;
+import pl.sda.shopapp.service.customer.CustomerService;
 
 import javax.transaction.Transactional;
 

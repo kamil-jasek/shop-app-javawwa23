@@ -1,4 +1,4 @@
-package pl.sda.shopapp.service;
+package pl.sda.shopapp.service.customer;
 
 import org.springframework.stereotype.Service;
 import pl.sda.shopapp.dto.AddressDto;
@@ -7,7 +7,6 @@ import pl.sda.shopapp.dto.CustomerQueryDto;
 import pl.sda.shopapp.dto.CustomerQueryResultDto;
 import pl.sda.shopapp.entity.Address;
 import pl.sda.shopapp.entity.Company;
-import pl.sda.shopapp.entity.Customer;
 import pl.sda.shopapp.entity.VatNumber;
 import pl.sda.shopapp.repository.CustomerRepository;
 import pl.sda.shopapp.repository.CustomerSpec;
@@ -17,7 +16,6 @@ import javax.transaction.Transactional;
 import java.util.List;
 import java.util.UUID;
 
-import static java.util.stream.Collectors.toList;
 import static pl.sda.shopapp.util.Preconditions.requireNonNulls;
 
 /**

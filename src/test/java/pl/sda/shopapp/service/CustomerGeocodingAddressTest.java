@@ -1,8 +1,6 @@
 package pl.sda.shopapp.service;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.BDDMockito;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -11,6 +9,7 @@ import pl.sda.shopapp.entity.Address;
 import pl.sda.shopapp.entity.Company;
 import pl.sda.shopapp.entity.VatNumber;
 import pl.sda.shopapp.repository.CustomerRepository;
+import pl.sda.shopapp.service.customer.CustomerService;
 import pl.sda.shopapp.service.geocoding.GeocodingService;
 
 import javax.transaction.Transactional;

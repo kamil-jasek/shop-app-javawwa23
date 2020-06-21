@@ -1,4 +1,4 @@
-package pl.sda.shopapp.service;
+package pl.sda.shopapp.service.customer;
 
 import org.springframework.stereotype.Component;
 import pl.sda.shopapp.dto.AddressDto;
