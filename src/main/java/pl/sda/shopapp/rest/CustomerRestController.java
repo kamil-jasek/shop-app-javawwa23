@@ -35,11 +35,11 @@ class CustomerRestController {
     }
 
     @PostMapping
-    ResponseEntity<UUID> createCustomer(@RequestBody @Valid CreateCompanyDto dto) {
+    ResponseEntity<CustomerIdDto> createCustomer(@RequestBody @Valid CreateCompanyDto dto) {
         var id = service.createCompany(dto);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .body(id);
+                .body(new CustomerIdDto(id));
     }
 
     @PatchMapping(path = "/{customerId}/companyName")
